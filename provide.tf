@@ -5,12 +5,12 @@ terraform {
             version = "~> 5.0"
         }
     }
-backend "s3" {
-  bucket = 
-  key =
-  region =
-  dynamobd_table =
-}
+ backend "s3" {
+    bucket = "aws-raidi-state"
+    key    = "expense"
+    region = "us-east-1"
+    dynamodb_table = "aws-locking"
+  }
 }
 provider "aws" {
     #configuration options
