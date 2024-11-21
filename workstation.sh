@@ -54,9 +54,9 @@ mv kubectl /usr/local/bin/kubectl
 VALIDATE $? "kubectl installation"
 
 # kubens
-git clone https://github.com/ahmetb/kubectx /opt/kubectx
-ln -s /opt/kubectx/kubens /usr/local/bin/kubens
-VALIDATE $? "kubens installation"
+sudo git clone https://github.com/ahmetb/kubectx /opt/kubectx
+sudo ln -s /opt/kubectx/kubectx /usr/local/bin/kubectx
+sudo ln -s /opt/kubectx/kubens /usr/local/bin/kubens
 
 
 #Helm
