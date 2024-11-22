@@ -66,4 +66,11 @@ chmod 700 get_helm.sh
 VALIDATE $? "helm installation"
 
 #k9s
-# curl -sS https://webinstall.dev/k9s | bash 
+curl -sS https://webinstall.dev/k9s | bash 
+
+#csi-drivers ebs
+kubectl apply -k "github.com/kubernetes-sigs/aws-ebs-csi-driver/deploy/kubernetes/overlays/stable/?ref=release-1.36"
+
+#csi-drivers efs
+kubectl kustomize \
+    "github.com/kubernetes-sigs/aws-efs-csi-driver/deploy/kubernetes/overlays/stable/?ref=release-2.1" > public-ecr-driver.yaml
