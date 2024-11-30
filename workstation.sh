@@ -67,6 +67,7 @@ VALIDATE $? "helm installation"
 
 #k9s
 curl -sS https://webinstall.dev/k9s | bash 
+VALIDATE $? "K9S installation"
 
 #csi-drivers ebs
 kubectl apply -k "github.com/kubernetes-sigs/aws-ebs-csi-driver/deploy/kubernetes/overlays/stable/?ref=release-1.36"
