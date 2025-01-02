@@ -58,7 +58,7 @@ VALIDATE $? "kubectl installation"
 sudo git clone https://github.com/ahmetb/kubectx /opt/kubectx
 sudo ln -s /opt/kubectx/kubectx /usr/local/bin/kubectx
 sudo ln -s /opt/kubectx/kubens /usr/local/bin/kubens
-
+VALIDATE $? "kubens installation"
 
 #Helm
 curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
@@ -72,10 +72,12 @@ VALIDATE $? "K9S installation"
 
 #csi-drivers ebs
 kubectl apply -k "github.com/kubernetes-sigs/aws-ebs-csi-driver/deploy/kubernetes/overlays/stable/?ref=release-1.36"
+VALIDATE $? "csi-drivers ebs installation"
 
 #csi-drivers efs
 kubectl kustomize \
     "github.com/kubernetes-sigs/aws-efs-csi-driver/deploy/kubernetes/overlays/stable/?ref=release-2.1" > public-ecr-driver.yaml
-
+VALIDATE $? "csi-drivers efs installation"
 #metrix-server
 kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+VALIDATE $? "metrix-server installation"
