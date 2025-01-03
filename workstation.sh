@@ -68,7 +68,7 @@ VALIDATE $? "helm installation"
 
 #k9s
 curl -sS https://webinstall.dev/k9s | bash 
-VALIDATE $? "K9S installation"
+VALIDATE $? "k9s installation"
 
 #csi-drivers ebs
 kubectl apply -k "github.com/kubernetes-sigs/aws-ebs-csi-driver/deploy/kubernetes/overlays/stable/?ref=release-1.36"
@@ -78,6 +78,7 @@ VALIDATE $? "csi-drivers ebs installation"
 kubectl kustomize \
     "github.com/kubernetes-sigs/aws-efs-csi-driver/deploy/kubernetes/overlays/stable/?ref=release-2.1" > public-ecr-driver.yaml
 VALIDATE $? "csi-drivers efs installation"
+
 #metrix-server
 kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
 VALIDATE $? "metrix-server installation"
