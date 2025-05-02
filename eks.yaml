@@ -8,5 +8,64 @@
  managedNodeGroups:
    - name: expense
      instanceType: m5.large
+    #  minSize: 1
+    #  maxSize: 10
      desiredCapacity: 3
      spot: true
+
+
+#      apiVersion: eksctl.io/v1alpha5
+# kind: ClusterConfig
+ 
+# metadata:
+#   name: expense-cluster
+#   region: us-east-1
+#   version: "1.29" # Optional: specify Kubernetes version
+ 
+# availabilityZones:
+#   - us-east-1a
+#   - us-east-1b
+#   - us-east-1c
+ 
+# managedNodeGroups:
+#   - name: expense-ng
+#     instanceTypes: ["m5.large", "m5.xlarge", "m5a.large"] # Multiple instance types
+#     desiredCapacity: 4
+#     minSize: 3
+#     maxSize: 6
+#     spot: true
+#     spotMaxPrice: "0.07" # Optional: max spot price (otherwise AWS handles it)
+#     availabilityZones:
+#       - us-east-1a
+#       - us-east-1b
+#       - us-east-1c
+#     volumeSize: 80
+#     ssh:
+#       allow: true
+#       publicKeyName: ec2_id_rsa # Make sure this SSH key exists in your AWS account
+#     labels:
+#       role: worker
+#       lifecycle: Ec2Spot
+#     tags:
+#       "k8s.io/cluster-autoscaler/enabled": "true"
+#       "k8s.io/cluster-autoscaler/expense-cluster": "owned"
+ 
+#   - name: expense-on-demand
+#     instanceType: m5.large
+#     desiredCapacity: 2
+#     minSize: 2
+#     maxSize: 4
+#     spot: false
+#     availabilityZones:
+#       - us-east-1a
+#       - us-east-1b
+#     volumeSize: 100
+#     ssh:
+#       allow: true
+#       publicKeyName: ec2_id_rsa
+#     labels:
+#       role: worker
+#       lifecycle: Ec2OnDemand
+#     tags:
+#       "k8s.io/cluster-autoscaler/enabled": "true"
+#       "k8s.io/cluster-autoscaler/expense-cluster": "owned"
