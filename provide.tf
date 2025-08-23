@@ -6,7 +6,7 @@ terraform {
         }
     }
  backend "s3" {
-    bucket = "aws-raidi-state"
+    bucket = "aws-raidi-state-dev"
     key    = "expense"
     region = "us-east-1"
     dynamodb_table = "aws-locking"
